@@ -49,6 +49,43 @@ input[type="checkbox"] {
   padding: 0;
   vertical-align: middle;
 }
+/* Estilo do chat */
+.chat-container {
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: var(--cor-secundaria);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.chat-messages {
+  height: 300px;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+.chat-input {
+  display: flex;
+}
+
+.chat-input input {
+  flex: 1;
+  border: none;
+  border-top: 1px solid #ccc;
+  padding: 10px;
+  outline: none;
+}
+
+.chat-input button {
+  background-color: var(--cor-primaria);
+  border: none;
+  color: var(--cor-secundaria);
+  font-size: 16px;
+  padding: 10px;
+  cursor: pointer;
+}
+    
 
   </style>
 </head>
@@ -143,3 +180,34 @@ input[type="checkbox"] {
     </tr>
   </tbody>
 </table>
+<!-- Chat bate-papo -->
+<div class="chat-container">
+  <div class="chat-messages"></div>
+  <div class="chat-input">
+    <input type="text" placeholder="Digite sua mensagem...">
+    <button>Enviar</button>
+  </div>
+</div>
+
+<script>
+  const chatInput = document.querySelector(".chat-input input");
+  const chatMessages = document.querySelector(".chat-messages");
+  const chatButton = document.querySelector(".chat-input button");
+
+  chatButton.addEventListener("click", () => {
+    if (chatInput.value.trim() !== "") {
+      const message = document.createElement("p");
+      message.textContent = chatInput.value;
+      chatMessages.appendChild(message);
+      chatInput.value = "";
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+  });
+
+  chatInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      chatButton.click();
+    }
+  });
+</script>
