@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabela</title>
+ <style>
+    /* Definir cores personalizadas */
+:root {
+  --cor-primaria: #4CAF50;
+  --cor-secundaria: #FFFFFF;
+}
+
+/* Estilo da tabela */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: var(--cor-primaria);
+  color: var(--cor-secundaria);
+}
+
+body {
+ background-color: #BDFCBF;  
+}
+
+body {
+ background-image: url('https://github.com/FADUL37/Israel.Tarefas/blob/main/W-on-G2-1-1280x640.png?raw=true'); 
+ background-repeat: repeat;
+ background-attachment: fixed;
+ background-size: cover;
+ opacity: 0.95; 
+ filter: saturate(90%);
+}
+
+tr:nth-child(even) {
+  background-color: var(--cor-secundaria);
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;  /* Ajuste como quiser */
+  margin-bottom: 1em;  /* Ajuste como quiser */
+}
+
+/* Estilo dos labels dos campos de formulário */
+label {
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+.form-group {
+  flex: 1;
+  margin-right: 1em;  /* Ajuste como quiser */
+}
+
+/* Estilo dos botões e campos de entrada */
+button, input[type="text"], input[type="datetime-local"], textarea {
+  background-color: var(--cor-primaria); /* Cores personalizadas */
+  color: var(--cor-secundaria);
+  border: none;
+  padding: 10px 20px; /* Espaçamento interno para aumentar o tamanho */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s; /* Efeito de transição */
+  cursor: pointer;
+}
+
+button:hover, input[type="text"]:hover, input[type="datetime-local"]:hover, textarea:hover {
+  background-color: var(--cor-secundaria); /* Alterar cor ao passar o mouse */
+  color: var(--cor-primaria);
+}
+
+/* Estilo específico para os campos de entrada e área de texto */
+input[type="text"], input[type="datetime-local"], textarea {
+  width: 30%; /* Para ocupar toda a largura disponível */
+  box-sizing: border-box; /* Para incluir padding e border no tamanho total */
+}
+
+button {
+  background-color: var(--cor-primaria); /* Cores personalizadas */
+  color: var(--cor-secundaria);
+  border: none;
+  padding: 10px 20px; /* Espaçamento interno para aumentar o tamanho do botão */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s; /* Efeito de transição */
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--cor-secundaria); /* Alterar cor ao passar o mouse */
+  color: var(--cor-primaria);
+}
+
+
+.form-group:last-child {
+  margin-right: 0;  /* Remova a margem direita do último grupo de formulário em uma linha */
+}
+tr:hover {
+  background-color: #F5F5F5;
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+}
+
+  </style>
+</head>
+
+<body>
+  <h1 id="welcome-message"></h1>
+  <p id="quote"></p> <!-- Esta é a nova linha que foi adicionada -->
+
+  <div class="overlay"></div>
+  <!-- resto do código... -->
+
+   <thead class="thead-dark">
+    <tr>     
+  <form id="credorForm">
+    <form id="credorForm">
+  <div class="form-row">
+    <div class="form-group">
+      <label for="credor">Credor:</label>
+      <input type="text" id="credor" name="credor">
+    </div>
+    <div class="form-group">
+      <label for="Cod">CodImp:</label>
+      <input type="text" id="CodImp" name="CodImp">
+    </div>
+    <div class="form-group">
+      <label for="Feito">Feito:</label>
+      <input type="checkbox" id="Sim" name="Feito" value="Sim"> Sim<br>
+      <input type="checkbox" id="Nao" name="Feito" value="Nao"> Nao<br>
+    </div>
+      <div class="form-group">
+      <label for="Fitros">Filtros:</label>
+      <input type="checkbox" id="Sim" name="Filtros" value="Sim"> Sim<br>
+      <input type="checkbox" id="Nao" name="Filtros" value="Nao"> Nao<br>
+    </div>
+       <div class="form-group">
+      <label for="Reex">Reex:</label>
+      <input type="checkbox" id="Sim" name="Reex" value="Sim"> Sim<br>
+      <input type="checkbox" id="Nao" name="Reex" value="Nao"> Nao<br>
+    </div>
+            
+    <label for="layout">Layout:</label><br>
+    <input type="checkbox" id="layout10" name="layout" value="10"> 10<br>
+    <input type="checkbox" id="layout16" name="layout" value="16"> 16<br>
+    <input type="checkbox" id="layout30" name="layout" value="30"> 30<br>
+    <input type="checkbox" id="Nao" name="layout" value="Nao"> Nao<br>
+    <input type="checkbox" id="layoutRejeicao" name="layout" value="Rejeicao"> Rejeição<br><br>
+    </div>
+    <div class="form-group">
+    <label for="importacaoFinalizado">Importação Finalizado:</label>
+    <input type="checkbox" id="ImportacaoFinalizado" name="ImportacaoFinalizado" value="true"><br><br>
+    </div>
+    </div>
+    <div class="form-group">
+    <label for="data">Data:</label>
+    <input type="datetime-local" id="data" name="data"><br><br>
+     </div>
+   
+    <div class="form-group">
+    <label for="observacao">Observação:</label><br>
+    <textarea id="observacao" name="observacao" rows="4" cols="50"></textarea><br><br>    
+     <button type="button" onclick="submitForm()">Salvar</button>
+     <button type="button" onclick="generateTable()">Gerar Tabela</button>
+     <button type="button" onclick="resetForm()">Limpar</button>
+     <button type="button" onclick="generateCsvReport()">Gerar Relatório CSV</button>
+
+      </div>
+    
+    </form>
+    </tr>
+   </thead>
+   <div id="tabelaResultados"></div>
+
+  <script>
+    const allData = [];
+
+    function submitForm() {
+      const form = document.getElementById("credorForm");
+      const formData = new FormData(form);
+      const data = {};
+      const analystName = localStorage.getItem('analystName');
+      const welcomeMessage = 'Bem-vindo, ' + analystName + '!';
+
+
+      for (const [key, value] of formData.entries()) {
+        if (key === "layout") {
+          if (!data[key]) data[key] = [];
+          data[key].push(value);
+        } else if (key === "ImportacaoFinalizado") {
+          data[key] = form.ImportacaoFinalizado.checked ? "Sim" : "Não";
+        } else {
+          data[key] = value;
+        }
+      }
+
+        // Salve os dados localmente ou envie para um servidor online aqui.
+        console.log(data);
+
+        // Adicione os dados ao array allData
+        allData.push(data);
+    }
+
+    function resetForm() {
+      document.getElementById("credorForm").reset();
+      document.getElementById('welcome-message').textContent = welcomeMessage;
+
+    }
+
+    function generateTable() {
+        const tableContainer = document.getElementById("tabelaResultados");
+        tableContainer.innerHTML = "";
+        const table = document.createElement("table");
+        table.border = "3";
+        table.style.width = "100%";
+        table.style.textAlign = "left";
+
+        // Cabeçalho da tabela
+        const header = table.createTHead();
+        const headerRow = header.insertRow(0);
+        const columns = ["Credor", "CodImp", "Feito", "Layout", "Importação Finalizado", "Data", "Observação", "Filtros", "Reex"];
+
+        for (const column of columns) {
+            const cell = headerRow.insertCell(-1);
+            cell.innerHTML = `<strong>${column}</strong>`;
+        }
+
+        // Corpo da tabela
+        const tbody = document.createElement("tbody");
+
+        for (const data of allData) {
+            const row = tbody.insertRow(-1);
+            row.insertCell(-1).innerHTML = data.credor;
+            row.insertCell(-1).innerHTML = data.CodImp;
+            row.insertCell(-1).innerHTML = data.Feito;
+            row.insertCell(-1).innerHTML = data.layout.join(", ");
+            row.insertCell(-1).innerHTML = data.ImportacaoFinalizado;
+            row.insertCell(-1).innerHTML = data.data;
+            row.insertCell(-1).innerHTML = data.observacao;
+            row.insertCell(-1).innerHTML = data.Filtros;
+            row.insertCell(-1).innerHTML = data.Reex;
+
+        }
+
+        table.appendChild(tbody);
+        tableContainer.appendChild(table);
+    }
+       
+
+function generateCsvReport() {
+    // Converta seus dados em uma string CSV
+    let csvData = "Credor, CodImp, Feito, Layout, Importação Finalizado, Data, Observação, Filtros, Reex\n";
+
+    for (const data of allData) {
+        csvData += `${data.credor}, ${data.CodImp}, ${data.Feito}, ${data.layout.join(", ")}, ${data.ImportacaoFinalizado}, ${data.data}, ${data.observacao}, ${data.Filtros}, ${data.Reex}\n`;
+    }
+
+    // Crie um blob com seus dados
+    const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
+
+    // Crie um link para o blob
+    const url = URL.createObjectURL(blob);
+
+    // Crie um link de download e adicione-o ao documento
+    const link = document.createElement('a');
+    link.href = url;
+
+    // Obtenha a data e hora atual e formate-as como uma string
+    const date = new Date();
+    const dateString = `${date.getFullYear()}_${date.getMonth()+1}_${date.getDate()}_${date.getHours()}_${date.getMinutes()}_${date.getSeconds()}`;
+
+    link.download = `relatorio_tarefas_${dateString}.csv`;
+    document.body.appendChild(link);
+
+    // Simule um clique no link para iniciar o download
+    link.click();
+
+    // Remova o link do documento depois do download
+    document.body.removeChild(link);
+}
+
+
+  </script>
+   <script>
+    const analystName = localStorage.getItem('analystName');
+    const welcomeMessage = 'Bem-vindo, ' + analystName + '!';
+    document.getElementById('welcome-message').textContent = welcomeMessage;
+  </script>
+
+ <script>
+  const analystName = localStorage.getItem('analystName');
+  const welcomeMessage = 'Bem-vindo, ' + analystName + '!';
+  document.getElementById('welcome-message').textContent = welcomeMessage;
+
+  // Buscar a frase motivacional
+  fetch('https://type.fit/api/quotes')
+    .then(response => response.json())
+    .then(data => {
+      const randomQuote = data[Math.floor(Math.random() * data.length)];
+      const quoteText = randomQuote.text;
+      const quoteElement = document.getElementById('quote');
+      quoteElement.textContent = quoteText;
+      
+      // Fazer a frase motivacional desaparecer após 45 segundos
+      setTimeout(() => {
+        quoteElement.style.display = 'none';
+      }, 45000);
+    });
+</script>
+
+
+</body>
+</html>
+
