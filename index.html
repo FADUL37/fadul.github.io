@@ -1,9 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <link rel="stylesheet" href="top.css">
 
 <style>
+
+.bold {
+  font-weight: bold;
+}
+.credor {
+  color: #2e7d32;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.button-3d {
+  background-color: #2e7d32;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  /* 3D button styling */
+  box-shadow: 0 5px #1b5e20;
+  position: relative;
+  top: 0;
+  transition: all 0.2s ease;
+}
+
+.button-3d:hover {
+  background-color: #1b5e20;
+  box-shadow: 0 2px #0d3312;
+}
+
+.button-3d:active {
+  top: 5px;
+  box-shadow: 0 1px #0d3312;
+}
+
 .checkbox-container {
   display: flex;
   justify-content: center;
@@ -17,13 +55,23 @@ body {
 }
 
 body {
- background-image: url('https://github.com/FADUL37/Israel.Tarefas/blob/main/W-on-G2-1-1280x640.png?raw=true'); 
- background-image: url('https://github.com/FADUL37/fadul.github.io/blob/index/robotgradientintro2.jpg'); 
+ background-image: url('https://github.com/FADUL37/fadul.github.ffio/blob/index/download.png?raw=true'); 
+ background-image: url('https://github.com/FADUL37/fadul.github.io/blob/index/robotgradientintro2.jpg?raw=true'); 
  background-repeat: repeat;
  background-attachment: fixed;
  background-size: cover;
  opacity: 0.9; 
  filter: saturate(70%);
+}
+body {
+  background-image: 
+    url('https://github.com/FADUL37/Israel.Tarefas/blooob/main/W-on-G2-1-1280x640.png?raw=true'),
+    url('https://github.com/FADUL37/fadul.github.io/blob/index/new.jpg?raw=true'); 
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed;
+  background-size: cover, cover;
+  opacity: 0.9; 
+  filter: saturate(70%);
 }
 
 
@@ -44,7 +92,7 @@ table th {
   color: white;
 }
 
-button {
+.button-3d {
   background-color: #2e7d32;
   color: white;
   padding: 10px 20px;
@@ -56,7 +104,7 @@ button {
   transition: all 0.3s ease;
 }
 
-button:hover {
+.button-3d:hover {
   background-color: #1b5e20;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
@@ -82,14 +130,16 @@ input[type="datetime-local"] {
 }
 
 </style>
+
+
 </head>
 
 <body>
 
 <input type="text" id="credorInput" placeholder="Insira o Credor">
-<button onclick="addRow()">Cadastrar Credor</button>
-<button onclick="saveData()">Salvar Tabela</button>
-<button onclick="downloadCSV()">Salvar Tabela em CSV</button>
+<button class="button-3d" onclick="addRow()">Cadastrar Credor</button>
+<button class="button-3d" onclick="saveData()">Salvar Tabela</button>
+<button class="button-3d" onclick="downloadCSV()">Salvar Tabela em CSV</button>
 
 
 <table id="myTable">
@@ -215,16 +265,34 @@ window.onload = function() {
       const cell14 = row.insertCell(13);
 
       cell1.innerHTML = `<span class="credor">${rowData.credor}</span>`;  // Linha corrigida
-      cell2.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.feito?' checked':'')+'></div>';
-      cell3.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.ausente?' checked':'')+'></div>';
+      cell2.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.feito?' 
+
+checked':'')+'></div>';
+      cell3.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.ausente?' 
+
+checked':'')+'></div>';
       cell4.innerHTML = '<textarea>'+rowData.cod_impor+'</textarea>';
-      cell5.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.layout10?' checked':'')+'></div>';
-      cell6.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.layout16?' checked':'')+'></div>';
-      cell7.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.layout30?' checked':'')+'></div>';
-      cell8.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.rejeicao?' checked':'')+'></div>';
-      cell9.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.finalizada_import?' checked':'')+'></div>';
-      cell10.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.filtros?' checked':'')+'></div>';
-      cell11.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.reex?' checked':'')+'></div>';
+      cell5.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.layout10?' 
+
+checked':'')+'></div>';
+      cell6.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.layout16?' 
+
+checked':'')+'></div>';
+      cell7.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.layout30?' 
+
+checked':'')+'></div>';
+      cell8.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.rejeicao?' 
+
+checked':'')+'></div>';
+      cell9.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.finalizada_import?' 
+
+checked':'')+'></div>';
+      cell10.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.filtros?' 
+
+checked':'')+'></div>';
+      cell11.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.reex?' 
+
+checked':'')+'></div>';
       cell12.innerHTML = '<textarea>'+rowData.incidentes+'</textarea>';
       cell13.innerHTML = '<input type="datetime-local" value="'+rowData.hora_data+'">';
       cell14.innerHTML = '<button onclick="deleteRow(this)">Excluir Tarefa</button>';
@@ -265,5 +333,4 @@ window.onload = function() {
 
 </body>
 </html>
-
 
