@@ -56,7 +56,8 @@ textarea {
   padding: 5px;
   box-sizing: border-box;
 }
-
+body {
+ background-image: url('https://raw.githubusercontent.com/FADUL37/fadul.github.io/index/new.jpg?raw=true'); 
 input[type="datetime-local"] {
   width: 100%;
 }
@@ -91,22 +92,22 @@ input[type="datetime-local"] {
       <th>Layout10</th>
       <th>Layout16</th>
       <th>Layout30</th>
-      <th>Rejeição</th>
+      <th>RejeiÃ§Ã£o</th>
       <th>Finalizada_Import</th>
       <th>Filtros</th>
       <th>Reex</th>
       <th>Incidentes</th>
       <th>Hora e Data</th>
-      <th>Ação</th>
+      <th>AÃ§Ã£o</th>
     </tr>
   </thead>
   <tbody>
-    <!-- As linhas serão inseridas aqui -->
+    <!-- As linhas serÃ£o inseridas aqui -->
   </tbody>
 </table>
 
 <script>
-// Função para adicionar linha
+// FunÃ§Ã£o para adicionar linha
 function addRow() {
   const table = document.getElementById('myTable');
   const row = table.insertRow(-1);
@@ -141,13 +142,13 @@ function addRow() {
   cell14.innerHTML = '<button onclick="deleteRow(this)">Excluir Tarefa</button>';
 }
 
-// Função para excluir linha
+// FunÃ§Ã£o para excluir linha
 function deleteRow(btn) {
   const row = btn.parentNode.parentNode;
   row.parentNode.removeChild(row);
 }
 
-// Função para salvar dados
+// FunÃ§Ã£o para salvar dados
 function saveData() {
   const table = document.getElementById('myTable');
   const data = [];
