@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link rel="stylesheet" href="top.css">
+
+<style>
+
+.bold {
+  font-weight: bold;
+}
+.credor {
+  color: #2e7d32;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.button-3d {
+  background-color: #2e7d32;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  /* 3D button styling */
+  box-shadow: 0 5px #1b5e20;
+  position: relative;
+  top: 0;
+  transition: all 0.2s ease;
+}
+
+.button-3d:hover {
+  background-color: #1b5e20;
+  box-shadow: 0 2px #0d3312;
+}
+
+.button-3d:active {
+  top: 5px;
+  box-shadow: 0 1px #0d3312;
+}
+
+.checkbox-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e8f5e9;
+}
+
+body {
+ background-image: url('https://github.com/FADUL37/fadul.github.ffio/blob/index/download.png?raw=true'); 
+ background-image: url('https://github.com/FADUL37/fadul.github.io/blob/index/robotgradientintro2.jpg?raw=true'); 
+ background-repeat: repeat;
+ background-attachment: fixed;
+ background-size: cover;
+ opacity: 0.9; 
+ filter: saturate(70%);
+}
+body {
+  background-image: 
+    url('https://github.com/FADUL37/Israel.Tarefas/blooob/main/W-on-G2-1-1280x640.png?raw=true'),
+    url('https://github.com/FADUL37/fadul.github.io/blob/index/new.jpg?raw=true'); 
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed;
+  background-size: cover, cover;
+  opacity: 0.9; 
+  filter: saturate(70%);
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th,
+table td {
+  border: 1px solid #81c784;
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  background-color: #2e7d32;
+  color: white;
+}
+
+.button-3d {
+  background-color: #2e7d32;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.button-3d:hover {
+  background-color: #1b5e20;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+input[type="datetime-local"] {
+  width: 100%;
+}
+
+.credor {
+  color: #2e7d32;
+  transition: background-color 0.3s ease;
+}
+
+.credor:hover {
+  background-color: #e8f5e9;
+}
+
+</style>
+
+
+</head>
+
+<body>
+
+<input type="text" id="credorInput" placeholder="Insira o Credor">
+<button class="button-3d" onclick="addRow()">Cadastrar Credor</button>
+<button class="button-3d" onclick="saveData()">Salvar Tabela</button>
+<button class="button-3d" onclick="downloadCSV()">Salvar Tabela em CSV</button>
+
+
+<table id="myTable">
+  <thead>
+    <tr>
+      <th>Credor</th>
+      <th>Feito</th>
+      <th>Ausente</th>
+      <th>Cod_Impor</th>
+      <th>Layout10</th>
+      <th>Layout16</th>
+      <th>Layout30</th>
+      <th>Rejeição</th>
+      <th>Finalizada_Import</th>
+      <th>Filtros</th>
+      <th>Reex</th>
+      <th>Incidentes</th>
+      <th>Hora e Data</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- As linhas serão inseridas aqui -->
+  </tbody>
+</table>
+
+<script>
+// Função para adicionar linha
+function addRow() {
+  const table = document.getElementById('myTable');
+  const row = table.insertRow(-1);
+  const cell1 = row.insertCell(0);
+  const cell2 = row.insertCell(1);
+  const cell3 = row.insertCell(2);
+  const cell4 = row.insertCell(3);
+  const cell5 = row.insertCell(4);
+  const cell6 = row.insertCell(5);
+  const cell7 = row.insertCell(6);
+  const cell8 = row.insertCell(7);
+  const cell9 = row.insertCell(8);
+  const cell10 = row.insertCell(9);
+  const cell11 = row.insertCell(10);
+  const cell12 = row.insertCell(11);
+  const cell13 = row.insertCell(12);
+  const cell14 = row.insertCell(13);
+
+  cell1.innerHTML = `<span class="credor">${document.getElementById('credorInput').value}</span>`;
+  cell2.innerHTML = '<div class="checkbox-container"><input type="checkbox"></div>';
+  cell3.innerHTML = '<div class="checkbox-container"><input type="checkbox"></div>';
+  cell4.innerHTML = '<textarea></textarea>';
+  cell5.innerHTML = '<div class="checkbox-container"><input type="checkbox"></div>';
+  cell6.innerHTML = '<div class="checkbox-container"><input type="checkbox"></div>';
+  cell7.innerHTML = '<div class="checkbox-container"><input type="checkbox"></div>';
+  cell8.innerHTML = '<div class="checkbox-container"><input type="checkbox"></div>';
+  cell9.innerHTML = '<div class="checkbox-container"><input type="checkbox"></div>';
+  cell10.innerHTML = '<div class="checkbox-container"><input type="checkbox"></div>';
+  cell11.innerHTML = '<div class="checkbox-container"><input type="checkbox"></div>';
+  cell12.innerHTML = '<textarea></textarea>';
+  cell13.innerHTML = '<input type="datetime-local">';
+  cell14.innerHTML = '<button onclick="deleteRow(this)">Excluir Tarefa</button>';
+}
+
+// Função para excluir linha
+function deleteRow(btn) {
+  const row = btn.parentNode.parentNode;
+  row.parentNode.removeChild(row);
+}
+
+// Função para salvar dados
+function saveData() {
+  const table = document.getElementById('myTable');
+  const data = [];
+
+  // Loop through each row of the table
+  for (let i = 1; i < table.rows.length; i++) {
+    const row = table.rows[i];
+
+    // Save data from each cell in the row
+    const rowData = {
+      credor: row.cells[0].innerText,
+      feito: row.cells[1].children[0].children[0].checked,
+      ausente: row.cells[2].children[0].children[0].checked,
+      cod_impor: row.cells[3].children[0].value,
+      layout10: row.cells[4].children[0].children[0].checked,
+      layout16: row.cells[5].children[0].children[0].checked,
+      layout30: row.cells[6].children[0].children[0].checked,
+      rejeicao: row.cells[7].children[0].children[0].checked,
+      finalizada_import: row.cells[8].children[0].children[0].checked,
+      filtros: row.cells[9].children[0].children[0].checked,
+      reex: row.cells[10].children[0].children[0].checked,
+      incidentes: row.cells[11].children[0].value,
+      hora_data: row.cells[12].children[0].value
+    };
+
+    data.push(rowData);
+  }
+
+  // Save data to localStorage
+  localStorage.setItem('tableData', JSON.stringify(data));
+}
+
+// Load data from localStorage on page load
+window.onload = function() {
+  const data = JSON.parse(localStorage.getItem('tableData'));
+
+  if (data) {
+    data.forEach(function(rowData) {
+      const table = document.getElementById('myTable');
+      const row = table.insertRow(-1);
+      const cell1 = row.insertCell(0);
+      const cell2 = row.insertCell(1);
+      const cell3 = row.insertCell(2);
+      const cell4 = row.insertCell(3);
+      const cell5 = row.insertCell(4);
+      const cell6 = row.insertCell(5);
+      const cell7 = row.insertCell(6);
+      const cell8 = row.insertCell(7);
+      const cell9 = row.insertCell(8);
+      const cell10 = row.insertCell(9);
+      const cell11 = row.insertCell(10);
+      const cell12 = row.insertCell(11);
+      const cell13 = row.insertCell(12);
+      const cell14 = row.insertCell(13);
+
+      cell1.innerHTML = `<span class="credor">${rowData.credor}</span>`;  // Linha corrigida
+      cell2.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.feito?' checked':'')+'></div>';
+      cell3.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.ausente?' checked':'')+'></div>';
+      cell4.innerHTML = '<textarea>'+rowData.cod_impor+'</textarea>';
+      cell5.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.layout10?' checked':'')+'></div>';
+      cell6.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.layout16?' checked':'')+'></div>';
+      cell7.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.layout30?' checked':'')+'></div>';
+      cell8.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.rejeicao?' checked':'')+'></div>';
+      cell9.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.finalizada_import?' checked':'')+'></div>';
+      cell10.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.filtros?' checked':'')+'></div>';
+      cell11.innerHTML = '<div class="checkbox-container"><input type="checkbox"'+(rowData.reex?' checked':'')+'></div>';
+      cell12.innerHTML = '<textarea>'+rowData.incidentes+'</textarea>';
+      cell13.innerHTML = '<input type="datetime-local" value="'+rowData.hora_data+'">';
+      cell14.innerHTML = '<button onclick="deleteRow(this)">Excluir Tarefa</button>';
+    });
+  }
+}
+      function exportTableToCSV() {
+  const table = document.getElementById('myTable');
+  let csv = [];
+  for (let i = 0; i < table.rows.length; i++) {
+    let row = [];
+    for (let j = 0; j < table.rows[i].cells.length; j++) {
+      let cell = table.rows[i].cells[j];
+      let text = cell.innerText;
+      text = text.replace(/"/g, '""'); // Escape double quotes
+      row.push('"' + text + '"');
+    }
+    csv.push(row.join(','));
+  }
+  return csv.join('\n');
+}
+      function downloadCSV() {
+  let csv = exportTableToCSV();
+  let blob = new Blob([csv], {type: 'text/csv;charset=utf-8;'});
+  let url = URL.createObjectURL(blob);
+  let link = document.createElement('a');
+  link.setAttribute('href', url);
+  link.setAttribute('download', 'tabela.csv');
+  link.style.visibility = 'hidden';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+
+
+</script>
+
+</body>
+</html>
+
