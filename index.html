@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de Credor</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button3d {
+            display: inline-block;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 0;
+            text-decoration: none;
+            background: #0066A2;
+            color: #FFFFFF;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.3s ease-in-out;
+            border-radius: 5px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+        }
+        .button3d:hover {
+            background: #005388;
+        }
+        td {
+            text-align: center;
+            vertical-align: middle;
+            font-weight: bold; /* Torna o texto negrito */
+        }
+        .table-header {
+            background-color: #0066A2;
+            color: #FFFFFF;
+        }
+        .table-body {
+            background-color: #F0F0F0;
+            color: #000000;
+        }
+        body {
+            background-image: url('https://www.futurebrand.com/uploads/_heroImage/Webhelp-6.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Cadastro de Credor</h2>
+
+<form id="credorForm">
+    Credor: <input type="text" id="credor"><br>
+    <input class="button3d" type="button" value="Cadastrar Credor" onclick="addCredor()">
+</form>
+
+<h2 class="hidden" id="credorTitle">Credores Cadastrados</h2>
+
+<div id="credorTable" class="hidden">
+    <table>
+        <!-- As linhas da tabela serão adicionadas aqui pelo JavaScript -->
+    </table>
+</div>
+
+<script>
+    function addCredor() {
+        let credor = document.getElementById('credor').value;
+        if (!credor) {
+            return;  // Não fazer nada se a entrada estiver vazia
+        }
+
+        // Exibe a tabela e o título quando um credor é cadastrado
+        document.getElementById('credorTable').classList.remove('hidden');
+        document.getElementById('credorTitle').classList.remove('hidden');
+
+        let table = document.getElementById('credorTable').getElementsByTagName('table')[0];
+
+        let row = table.insertRow();
+        row.className = 'table-header';
+        row.insertCell(0).innerHTML = 'Credor';
+        row.insertCell(1).innerHTML = 'Feito';
+        row.insertCell(2).innerHTML = 'Ausente';
+        row.insertCell(3).innerHTML = 'Cod_Import';
+        row.insertCell(4).innerHTML = 'Layout10';
+        row.insertCell(5).innerHTML = 'Layout16';
+        row.insertCell(6).innerHTML = 'Layout30';
+        row.insertCell(7).innerHTML = 'Rejeição';
+        row.insertCell(8).innerHTML = 'Finalizada_Import';
+        row.insertCell(9).innerHTML = 'Filtros';
+        row.insertCell(10).innerHTML = 'Reex';
+        row.insertCell(11).innerHTML = 'Incidentes';
+        row.insertCell(12).innerHTML = 'Hora e Data';
+        row.insertCell(13).innerHTML = '';
+
+        let row2 = table.insertRow();
+        row2.className = 'table-body';
+        row2.insertCell(0).innerHTML = credor;
+        row2.insertCell(1).innerHTML = '<input type="checkbox">';
+        row2.insertCell(2).innerHTML = '<input type="checkbox">';
+        row2.insertCell(3).innerHTML = '<textarea></textarea>';
+        row2.insertCell(4).innerHTML = '<input type="checkbox">';
+        row2.insertCell(5).innerHTML = '<input type="checkbox">';
+        row2.insertCell(6).innerHTML = '<input type="checkbox">';
+        row2.insertCell(7).innerHTML = '<input type="checkbox">';
+        row2.insertCell(8).innerHTML = '<input type="checkbox">';
+        row2.insertCell(9).innerHTML = '<input type="checkbox">';
+        row2.insertCell(10).innerHTML = '<input type="checkbox">';
+        row2.insertCell(11).innerHTML = '<textarea></textarea>';
+        row2.insertCell(12).innerHTML = '<input type="datetime-local">';
+        row2.insertCell(13).innerHTML = '<button class="button3d" onclick="deleteRow(this)">Excluir</button>';
+
+        // Limpar o campo do formulário após o cadastro
+        document.getElementById('credor').value = '';
+    }
+
+    function deleteRow(btn) {
+        let row = btn.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+</script>
+
+</body>
+</html>
+
