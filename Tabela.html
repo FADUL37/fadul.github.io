@@ -84,14 +84,14 @@
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span> 
-
-         <span class="sr-only">Anterior</span>
-     </a>
-<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Próximo</span>
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+<span class="sr-only">Anterior</span>
 </a>
+<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+<span class="carousel-control-next-icon" aria-hidden="true"></span>
+<span class="sr-only">Próximo</span>
+</a>
+
 </div>
 <h2>Cadastro de Credor</h2>
 <form id="credorForm">
@@ -119,72 +119,79 @@
         let table = document.getElementById('credorTable').getElementsByTagName('table')[0];
 
         let row = table.insertRow();
-        row.insertCell(0).innerHTML = credor;
-        row.insertCell(1).innerHTML = '<input type="checkbox">';
-        row.insertCell(2).innerHTML = '<input type="checkbox">';
-        row.insertCell(3).innerHTML = '<textarea></textarea>';
-        row.insertCell(4).innerHTML = '<input type="checkbox">';
-    	row.insertCell(5).innerHTML = '<input type="checkbox">';
-        row.insertCell(6).innerHTML = '<input type="checkbox">';
-   	row.insertCell(7).innerHTML = '<input type="checkbox">';
-        row.insertCell(8).innerHTML = '<input type="checkbox">';
-  	row.insertCell(9).innerHTML = '<input type="checkbox">';
- 	row.insertCell(10).innerHTML = '<input type="checkbox">';
- 	row.insertCell(11).innerHTML = '<textarea></textarea>';
-  	row.insertCell(12).innerHTML = '<input type="datetime-local">';
-  	row.insertCell(13).innerHTML = '<button class="button3d" onclick="deleteRow(this)">Excluir</button>';
+        row.insertCell(0).innerHTML = 'Credor';
+        row.insertCell(1).innerHTML = 'Feito';
+        row.insertCell(2).innerHTML = 'Ausente';
+        row.insertCell(3).innerHTML = 'Cod_Import';
+        row.insertCell(4).innerHTML = 'Layout10';
+        row.insertCell(5).innerHTML = 'Layout16';
+        row.insertCell(6).innerHTML = 'Layout30';
+        row.insertCell(7).innerHTML = 'Rejeição';
+        row.insertCell(8).innerHTML = 'Finalizada_Import';
+        row.insertCell(9).innerHTML = 'Filtros';
+        row.insertCell(10).innerHTML = 'Reex';
+        row.insertCell(11).innerHTML = 'Incidentes';
+        row.insertCell(12).innerHTML = 'Hora e Data';
+        row.insertCell(13).innerHTML = '';
 
-    // Limpar o campo do formulário após o cadastro
-    document.getElementById('credor').value = '';
+        let row2 = table.insertRow();
+        row2.insertCell(0).innerHTML = credor;
+        row2.insertCell(1).innerHTML = '<input type="checkbox">';
+        row2.insertCell(2).innerHTML = '<input type="checkbox">';
+        row2.insertCell(3).innerHTML = '<textarea></textarea>';
+        row2.insertCell(4).innerHTML = '<input type="checkbox">';
+        row2.insertCell(5).innerHTML = '<input type="checkbox">';
+        row2.insertCell(6).innerHTML = '<input type="checkbox">';
+        row2.insertCell(7).innerHTML = '<input type="checkbox">';
+        row2.insertCell(8).innerHTML = '<input type="checkbox">';
+        row2.insertCell(9).innerHTML = '<input type="checkbox">';
+   	row2.insertCell(10).innerHTML = '<input type="checkbox">';
+    	row2.insertCell(11).innerHTML = '<textarea></textarea>';
+    	row2.insertCell(12).innerHTML = '<input type="datetime-local">';
+    	row2.insertCell(13).innerHTML = '<button class="button3d" onclick="deleteRow(this)">Excluir</button>';
+
+    }
+       // Limpar o campo do formulário após o cadastro
+        document.getElementById('credor').value = '';
+
 }
 
 function deleteRow(btn) {
-    let row = btn.parentNode.parentNode;
-    row.parentNode.removeChild(row);
+let row = btn.parentNode.parentNode;
+row.parentNode.removeChild(row);
 }
 
 function saveData() {
-    let tableData = [];
-    let table = document.getElementById('credorTable').getElementsByTagName('table')[0];
-    for (let i = 0; i < table.rows.length; i++) {
-        let rowData = [];
-        let cells = table.rows[i].cells;
-        for (let j = 0; j < cells.length; j++) {
-            rowData.push(cells[j].innerHTML);
-        }
-        tableData.push(rowData);
-    }
-    localStorage.setItem('credorTableData', JSON.stringify(tableData));
+let tableData = [];
+let table = document.getElementById('credorTable').getElementsByTagName('table')[0];
+for (let i = 0, row; (row = table.rows[i]); i++) {
+let rowData = [];
+for (let j = 0, cell; (cell = row.cells[j]); j++) {
+rowData.push(cell.innerHTML);
+}
+tableData.push(rowData);
+}
+localStorage.setItem('credorTableData', JSON.stringify(tableData));
 }
 
 function loadData() {
-    let tableData = JSON.parse(localStorage.getItem('credorTableData'));
-    if (tableData) {
-        let table = document.getElementById('credorTable').getElementsByTagName('table')[0];
-for (let i = 0; i < tableData.length; i++) {
-let rowData = tableData[i];
+let tableData = JSON.parse(localStorage.getItem('credorTableData'));
+if (tableData) {
+let table = document.getElementById('credorTable').getElementsByTagName('table')[0];
+for (let i = 0, rowData; (rowData = tableData[i]); i++) {
 let row = table.insertRow();
-for (let j = 0; j < rowData.length; j++) {
-let cell = row.insertCell();
-cell.innerHTML = rowData[j];
+for (let j = 0, cellData; (cellData = rowData[j]); j++) {
+row.insertCell().innerHTML = cellData;
 }
 }
 document.getElementById('credorTable').classList.remove('hidden');
 document.getElementById('credorTitle').classList.remove('hidden');
-
+}
 }
 
 // Chama a função loadData quando a página é carregada
 window.onload = loadData;
-
 </script>
+
 </body>
 </html>
-
-}
-
-
-
-     
-
-   
