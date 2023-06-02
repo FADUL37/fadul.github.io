@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Adicione o JavaScript e jQuery do Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <title>Cadastro de Credor</title>
     <style>
         .hidden {
@@ -9,18 +14,18 @@
         .button3d {
             display: inline-block;
             border: none;
-            padding: 0.5rem 1rem;
+            padding: 5px 10px;
             margin: 0;
             text-decoration: none;
             background: #0066A2;
             color: #FFFFFF;
             font-family: sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.6rem;
             cursor: pointer;
             text-align: center;
             transition: background 0.3s ease-in-out;
             border-radius: 5px;
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
         }
         .button3d:hover {
             background: #005388;
@@ -28,37 +33,66 @@
         td {
             text-align: center;
             vertical-align: middle;
-            font-weight: bold; /* Torna o texto negrito */
-        }
-        .table-header {
-            background-color: #0066A2;
-            color: #FFFFFF;
-        }
-        .table-body {
-            background-color: #F0F0F0;
-            color: #000000;
+            font-weight: bold;
         }
         body {
             background-image: url('https://www.futurebrand.com/uploads/_heroImage/Webhelp-6.jpg');
             background-repeat: no-repeat;
             background-size: cover;
         }
+        .carousel-image {
+            max-height: 300px;
+            max-width: 300px;
+            width: auto;
+            height: auto;
+            margin: auto;
+        }
+
+        .carousel-inner {
+            height: 300px;
+        }
+
+        .carousel-image {
+            height: 300px;
+            width: auto;
+            max-width: 50%;
+            object-fit: cover;
+            margin: auto;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+        
+        h1 {
+            font-size: 48px;
+        }
+        
+        button {
+            font-size: 18px;
+            padding: 5px 10px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
+    <h1 id="clock">00:00:00</h1>
+    <button class="button3d" onclick="baterPonto()">Bater Ponto</button>
+    <button class="button3d" onclick="emitirSom()">Emitir Som Após 01:00</button>
 
-<h2>Cadastro de Credor</h2>
+    <h2>Cadastro de Credor</h2>
+    <form id="credorForm">
+        Credor: <input type="text" id="credor"><br>
+        <input class="button3d" type="button" value="Cadastrar" onclick="addCredor()">
+        <input class="button3d" type="button" value="Salvar" onclick="saveData()">
+    </form>
 
-<form id="credorForm">
-    Credor: <input type="text" id="credor"><br>
-    <input class="button3d" type="button" value="Cadastrar Credor" onclick="addCredor()">
-</form>
+    <h2 class="hidden" id="credorTitle">Credores Cadastrados</h2>
+    <div id="credorTable" class="hidden">
 
-<h2 class="hidden" id="credorTitle">Credores Cadastrados</h2>
-
-<div id="credorTable" class="hidden">
     <table>
-        <!-- As linhas da tabela ser�o adicionadas aqui pelo JavaScript -->
+        <!-- As linhas da tabela serão adicionadas aqui pelo JavaScript -->
     </table>
 </div>
 
@@ -66,50 +100,33 @@
     function addCredor() {
         let credor = document.getElementById('credor').value;
         if (!credor) {
-            return;  // N�o fazer nada se a entrada estiver vazia
+            return;  // Não fazer nada se a entrada estiver vazia
         }
 
-        // Exibe a tabela e o t�tulo quando um credor � cadastrado
+        // Exibe a tabela e o título quando um credor é cadastrado
         document.getElementById('credorTable').classList.remove('hidden');
         document.getElementById('credorTitle').classList.remove('hidden');
 
         let table = document.getElementById('credorTable').getElementsByTagName('table')[0];
 
         let row = table.insertRow();
-        row.className = 'table-header';
-        row.insertCell(0).innerHTML = 'Credor';
-        row.insertCell(1).innerHTML = 'Feito';
-        row.insertCell(2).innerHTML = 'Ausente';
-        row.insertCell(3).innerHTML = 'Cod_Import';
-        row.insertCell(4).innerHTML = 'Layout10';
-        row.insertCell(5).innerHTML = 'Layout16';
-        row.insertCell(6).innerHTML = 'Layout30';
-        row.insertCell(7).innerHTML = 'Rejei��o';
-        row.insertCell(8).innerHTML = 'Finalizada_Import';
-        row.insertCell(9).innerHTML = 'Filtros';
-        row.insertCell(10).innerHTML = 'Reex';
-        row.insertCell(11).innerHTML = 'Incidentes';
-        row.insertCell(12).innerHTML = 'Hora e Data';
-        row.insertCell(13).innerHTML = '';
+        row.insertCell(0).innerHTML = credor;
+        row.insertCell(1).innerHTML = '<input type="checkbox">';
+        row.insertCell(2).innerHTML = '<input type="checkbox">';
+        row.insertCell(3).innerHTML = '<textarea></textarea>';
 
-        let row2 = table.insertRow();
-        row2.className = 'table-body';
-        row2.insertCell(0).innerHTML = credor;
-        row2.insertCell(1).innerHTML = '<input type="checkbox">';
-        row2.insertCell(2).innerHTML = '<input type="checkbox">';
-        row2.insertCell(3).innerHTML = '<textarea></textarea>';
-        row2.insertCell(4).innerHTML = '<input type="checkbox">';
-        row2.insertCell(5).innerHTML = '<input type="checkbox">';
-        row2.insertCell(6).innerHTML = '<input type="checkbox">';
-        row2.insertCell(7).innerHTML = '<input type="checkbox">';
-        row2.insertCell(8).innerHTML = '<input type="checkbox">';
-        row2.insertCell(9).innerHTML = '<input type="checkbox">';
-        row2.insertCell(10).innerHTML = '<input type="checkbox">';
-        row2.insertCell(11).innerHTML = '<textarea></textarea>';
-        row2.insertCell(12).innerHTML = '<input type="datetime-local">';
-        row2.insertCell(13).innerHTML = '<button class="button3d" onclick="deleteRow(this)">Excluir</button>';
+        row.insertCell(4).innerHTML = '<input type="checkbox">';
+        row.insertCell(5).innerHTML = '<input type="checkbox">';
+        row.insertCell(6).innerHTML = '<input type="checkbox">';
+        row.insertCell(7).innerHTML = '<input type="checkbox">';
+        row.insertCell(8).innerHTML = '<input type="checkbox">';
+        row.insertCell(9).innerHTML = '<input type="checkbox">';
+        row.insertCell(10).innerHTML = '<input type="checkbox">';
+        row.insertCell(11).innerHTML = '<textarea></textarea>';
+        row.insertCell(12).innerHTML = '<input type="datetime-local">';
+        row.insertCell(13).innerHTML = '<button class="button3d" onclick="deleteRow(this)">Excluir</button>';
 
-        // Limpar o campo do formul�rio ap�s o cadastro
+        // Limpar o campo do formulário após o cadastro
         document.getElementById('credor').value = '';
     }
 
@@ -117,8 +134,81 @@
         let row = btn.parentNode.parentNode;
         row.parentNode.removeChild(row);
     }
-</script>
 
+    function saveData() {
+        let tableData = [];
+        let table = document.getElementById('credorTable').getElementsByTagName('table')[0];
+        for (let i = 0; i < table.rows.length; i++) {
+            let rowData = [];
+            let cells = table.rows[i].cells;
+            for (let j = 0; j < cells.length; j++) {
+                rowData.push(cells[j].innerHTML);
+            }
+            tableData.push(rowData);
+        }
+        localStorage.setItem('credorTableData', JSON.stringify(tableData));
+    }
+
+    function loadData() {
+        let tableData = JSON.parse(localStorage.getItem('credorTableData'));
+        if (tableData) {
+            let table = document.getElementById('credorTable').getElementsByTagName('table')[0];
+            for (let i = 0; i < tableData.length; i++) {
+                let rowData = tableData[i];
+                let row = table.insertRow();
+                for (let j = 0; j < rowData.length; j++) {
+                    let cell = row.insertCell();
+                    cell.innerHTML = rowData[j];
+                }
+            }
+            document.getElementById('credorTable').classList.remove('hidden');
+            document.getElementById('credorTitle').classList.remove('hidden');
+        }
+    }
+
+    window.onload = loadData;
+
+    function atualizarRelogio() {
+        var dataAtual = new Date();
+        var horas = formatarNumero(dataAtual.getHours());
+        var minutos = formatarNumero(dataAtual.getMinutes());
+        var segundos = formatarNumero(dataAtual.getSeconds());
+        var horario = horas + ':' + minutos + ':' + segundos;
+        document.getElementById('clock').innerText = horario
+
+        // Verifica se é 01:00 ou posterior para emitir o som
+        if (horas === '1' && minutos === '0' && segundos === '0') {
+            emitirSom();
+        }
+    }
+
+    // Função para formatar números menores que 10 com zero à esquerda
+    function formatarNumero(numero) {
+        return numero < 10 ? numero.toString().padStart(2, '0') : numero.toString();
+    }
+
+    function baterPonto() {
+        var dataAtual = new Date();
+        var horas = formatarNumero(dataAtual.getHours());
+        var minutos = formatarNumero(dataAtual.getMinutes());
+        var segundos = formatarNumero(dataAtual.getSeconds());
+        var horario = horas + ':' + minutos + ':' + segundos;
+        alert('Ponto batido às ' + horario);
+    }
+
+    // Função para emitir som
+    function emitirSom() {
+        var audio = new Audio('som.mp3');
+        audio.play();
+    }
+
+    // Atualiza o relógio a cada segundo
+    setInterval(atualizarRelogio, 1000);
+</script>
 </body>
 </html>
+
+
+
+
 
