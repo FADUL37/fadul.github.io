@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <!-- Adicione o JavaScript e jQuery do Bootstrap -->
@@ -75,28 +76,29 @@
             margin-top: 10px;
         }
     </style>
-</head>
-<body>
+   
+   </head>
+   <body>
     <h1 id="clock">00:00:00</h1>
-    <button class="button3d" onclick="baterPonto()">Bater Ponto</button>
-    <button class="button3d" onclick="emitirSom()">Emitir Som Após 01:00</button>
+   <h1 id="clock">00:00:00</h1>
+    <button onclick="baterPonto()">Bater Ponto</button>
+    <button onclick="emitirSom()">Emitir Som Após 01:00</button>
 
-    <h2>Cadastro de Credor</h2>
-    <form id="credorForm">
-        Credor: <input type="text" id="credor"><br>
-        <input class="button3d" type="button" value="Cadastrar" onclick="addCredor()">
-        <input class="button3d" type="button" value="Salvar" onclick="saveData()">
-    </form>
 
-    <h2 class="hidden" id="credorTitle">Credores Cadastrados</h2>
-    <div id="credorTable" class="hidden">
+<h2>Cadastro de Credor</h2>
+<form id="credorForm">
+    Credor: <input type="text" id="credor"><br>
+    <input class="button3d" type="button" value="Cadastrar" onclick="addCredor()">
+    <input class="button3d" type="button" value="Salvar" onclick="saveData()">
+</form>
 
+<h2 class="hidden" id="credorTitle">Credores Cadastrados</h2>
+<div id="credorTable" class="hidden">
     <table>
         <!-- As linhas da tabela serão adicionadas aqui pelo JavaScript -->
     </table>
 </div>
-
-<script>
+       <script>
     function addCredor() {
         let credor = document.getElementById('credor').value;
         if (!credor) {
@@ -115,100 +117,95 @@
         row.insertCell(2).innerHTML = '<input type="checkbox">';
         row.insertCell(3).innerHTML = '<textarea></textarea>';
 
-        row.insertCell(4).innerHTML = '<input type="checkbox">';
-        row.insertCell(5).innerHTML = '<input type="checkbox">';
-        row.insertCell(6).innerHTML = '<input type="checkbox">';
-        row.insertCell(7).innerHTML = '<input type="checkbox">';
-        row.insertCell(8).innerHTML = '<input type="checkbox">';
-        row.insertCell(9).innerHTML = '<input type="checkbox">';
-        row.insertCell(10).innerHTML = '<input type="checkbox">';
-        row.insertCell(11).innerHTML = '<textarea></textarea>';
-        row.insertCell(12).innerHTML = '<input type="datetime-local">';
-        row.insertCell(13).innerHTML = '<button class="button3d" onclick="deleteRow(this)">Excluir</button>';
+            row.insertCell(4).innerHTML = '<input type="checkbox">';
+    row.insertCell(5).innerHTML = '<input type="checkbox">';
+    row.insertCell(6).innerHTML = '<input type="checkbox">';
+    row.insertCell(7).innerHTML = '<input type="checkbox">';
+    row.insertCell(8).innerHTML = '<input type="checkbox">';
+    row.insertCell(9).innerHTML = '<input type="checkbox">';
+    row.insertCell(10).innerHTML = '<input type="checkbox">';
+    row.insertCell(11).innerHTML = '<textarea></textarea>';
+    row.insertCell(12).innerHTML = '<input type="datetime-local">';
+    row.insertCell(13).innerHTML = '<button class="button3d" onclick="deleteRow(this)">Excluir</button>';
 
-        // Limpar o campo do formulário após o cadastro
-        document.getElementById('credor').value = '';
+    // Limpar o campo do formulário após o cadastro
+    document.getElementById('credor').value = '';
+}
+
+function deleteRow(btn) {
+    let row = btn.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+}
+
+function saveData() {
+    let tableData = [];
+    let table = document.getElementById('credorTable').getElementsByTagName('table')[0];
+    for (let i = 0; i < table.rows.length; i++) {
+        let rowData = [];
+        let cells = table.rows[i].cells;
+        for (let j = 0; j < cells.length; j++) {
+            rowData.push(cells[j].innerHTML);
+        }
+        tableData.push(rowData);
     }
+    localStorage.setItem('credorTableData', JSON.stringify(tableData));
+}
 
-    function deleteRow(btn) {
-        let row = btn.parentNode.parentNode;
-        row.parentNode.removeChild(row);
-    }
-
-    function saveData() {
-        let tableData = [];
+function loadData() {
+    let tableData = JSON.parse(localStorage.getItem('credorTableData'));
+    if (tableData) {
         let table = document.getElementById('credorTable').getElementsByTagName('table')[0];
-        for (let i = 0; i < table.rows.length; i++) {
-            let rowData = [];
-            let cells = table.rows[i].cells;
-            for (let j = 0; j < cells.length; j++) {
-                rowData.push(cells[j].innerHTML);
+for (let i = 0; i < tableData.length; i++) {
+let rowData = tableData[i];
+let row = table.insertRow();
+for (let j = 0; j < rowData.length; j++) {
+let cell = row.insertCell();
+cell.innerHTML = rowData[j];
+}
+}
+document.getElementById('credorTable').classList.remove('hidden');
+document.getElementById('credorTitle').classList.remove('hidden');
+}
+}
+
+window.onload = loadData;
+
+function atualizarRelogio() {
+            var dataAtual = new Date();
+            var horas = formatarNumero(dataAtual.getHours());
+            var minutos = formatarNumero(dataAtual.getMinutes());
+            var segundos = formatarNumero(dataAtual.getSeconds());
+            var horario = horas + ':' + minutos + ':' + segundos;
+            document.getElementById('clock').innerText = horario;
+            
+            // Verifica se é 01:00 ou posterior para emitir o som
+            if (horas === '01' && minutos === '00' && segundos === '00') {
+                emitirSom();
             }
-            tableData.push(rowData);
         }
-        localStorage.setItem('credorTableData', JSON.stringify(tableData));
-    }
-
-    function loadData() {
-        let tableData = JSON.parse(localStorage.getItem('credorTableData'));
-        if (tableData) {
-            let table = document.getElementById('credorTable').getElementsByTagName('table')[0];
-            for (let i = 0; i < tableData.length; i++) {
-                let rowData = tableData[i];
-                let row = table.insertRow();
-                for (let j = 0; j < rowData.length; j++) {
-                    let cell = row.insertCell();
-                    cell.innerHTML = rowData[j];
-                }
-            }
-            document.getElementById('credorTable').classList.remove('hidden');
-            document.getElementById('credorTitle').classList.remove('hidden');
+        
+        // Função para formatar números menores que 10 com zero à esquerda
+        function formatarNumero(numero) {
+            return numero < 10 ? '0' + numero : numero;
         }
-    }
 
-    window.onload = loadData;
-
-    function atualizarRelogio() {
-        var dataAtual = new Date();
-        var horas = formatarNumero(dataAtual.getHours());
-        var minutos = formatarNumero(dataAtual.getMinutes());
-        var segundos = formatarNumero(dataAtual.getSeconds());
-        var horario = horas + ':' + minutos + ':' + segundos;
-        document.getElementById('clock').innerText = horario
-
-        // Verifica se é 01:00 ou posterior para emitir o som
-        if (horas === '1' && minutos === '0' && segundos === '0') {
-            emitirSom();
+        function baterPonto() {
+            var dataAtual = new Date();
+            var horas = formatarNumero(dataAtual.getHours());
+            var minutos = formatarNumero(dataAtual.getMinutes());
+            var segundos = formatarNumero(dataAtual.getSeconds());
+            var horario = horas + ':' + minutos + ':' + segundos;
+            alert('Ponto batido às ' + horario);
         }
-    }
+        
+        // Função para emitir som
+        function emitirSom() {
+            var audio = new Audio('som.mp3'); // Insira o caminho para o arquivo de áudio
+            audio.play();
+        }
 
-    // Função para formatar números menores que 10 com zero à esquerda
-    function formatarNumero(numero) {
-        return numero < 10 ? numero.toString().padStart(2, '0') : numero.toString();
-    }
-
-    function baterPonto() {
-        var dataAtual = new Date();
-        var horas = formatarNumero(dataAtual.getHours());
-        var minutos = formatarNumero(dataAtual.getMinutes());
-        var segundos = formatarNumero(dataAtual.getSeconds());
-        var horario = horas + ':' + minutos + ':' + segundos;
-        alert('Ponto batido às ' + horario);
-    }
-
-    // Função para emitir som
-    function emitirSom() {
-        var audio = new Audio('som.mp3');
-        audio.play();
-    }
-
-    // Atualiza o relógio a cada segundo
-    setInterval(atualizarRelogio, 1000);
+        // Atualiza o relógio a cada segundo
+        setInterval(atualizarRelogio, 1000);
 </script>
 </body>
 </html>
-
-
-
-
-
