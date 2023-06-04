@@ -430,7 +430,21 @@ th {
     if (!credor) {
       return;
     }
-
+    $.ajax({
+    type: "POST",
+    url: "save_credential.php",
+    data: { credor: credor },
+    success: function(response) {
+      alert(response);
+      document.getElementById("credor").value = "";
+    },
+    error: function(xhr, status, error) {
+      alert("Erro ao cadastrar o credor");
+      console.error(error);
+    }
+  });
+}
+      
     document.getElementById("credorTable").classList.remove("hidden");
     document.getElementById("credorTitle").classList.remove("hidden");
 
