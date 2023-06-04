@@ -2,12 +2,187 @@
   <head>
     <link
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
 
     <!-- Adicione o JavaScript e jQuery do Bootstrap -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <title>Cadastro de Credor</title>
+    <title><h3>Cadastro de Credor</h3></title>
+    <style>
+
+     #relogio {
+  position: fixed;
+  right: 20px;
+  top: 10px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #0066a2;
+  color: #ffffff;
+  font-size: 1.5rem;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
+
+      .hidden {
+        display: none;
+      }
+      .button3d {
+        display: inline-block;
+        border: none;
+        padding: 0.5rem 1rem;
+        margin: 0;
+        text-decoration: none;
+        background: #0066a2;
+        color: #ffffff;
+        font-family: sans-serif;
+        font-size: 0.8rem;
+        cursor: pointer;
+        text-align: center;
+        transition: background 0.3s ease-in-out;
+        border-radius: 5px;
+        box-shadow: 5px 5px 10px rgba(37, 80, 109, 0.493);
+      }
+      .button3d:hover {
+        background: #005388;
+      }
+      td {
+        text-align: center;
+        vertical-align: middle;
+        font-weight: bold;
+      }
+   
+        .button3d {
+  background-color: #0066a2;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.button3d:hover {
+  background-color: #005388;
+  color: white;
+}
+
+/* Estilização para o cabeçalho */
+h1, h2, h3 {
+  font-family: Arial, sans-serif;
+  color: #0066a2;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Estilização para inputs de texto */
+input[type="text"] {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #0066a2;
+  border-radius: 4px;
+}
+
+/* Estilização para a tabela */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #0066a2;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #0066a2;
+  color: white;
+}
+
+      body {
+        background-image: url("https://www.futurebrand.com/uploads/_heroImage/Webhelp-6.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .carousel-image {
+        max-height: 300px;
+        max-width: 300px;
+        width: auto;
+        height: auto;
+        margin: auto;
+      }
+      @keyframes shake {
+        0% {
+          transform: translate(1px, 1px) rotate(0deg);
+        }
+        10% {
+          transform: translate(-1px, -2px) rotate(-1deg);
+        }
+        20% {
+          transform: translate(-3px, 0px) rotate(1deg);
+        }
+        30% {
+          transform: translate(3px, 2px) rotate(0deg);
+        }
+        40% {
+          transform: translate(1px, -1px) rotate(1deg);
+        }
+        50% {
+          transform: translate(-1px, 2px) rotate(-1deg);
+        }
+        60% {
+          transform: translate(-3px, 1px) rotate(0deg);
+        }
+        70% {
+          transform: translate(3px, 1px) rotate(-1deg);
+        }
+        80% {
+          transform: translate(-1px, -1px) rotate(1deg);
+        }
+        90% {
+          transform: translate(1px, 2px) rotate(0deg);
+        }
+        100% {
+          transform: translate(1px, -2px) rotate(-1deg);
+        }
+      }
+      .shake {
+        animation: shake 0.5s;
+        animation-iteration-count: 2;
+      }
+      #relogio:hover {
+        background: #0066a2;
+        color: #ffffff;
+        box-shadow: 0px 15px 20px rgba(2, 128, 144, 0.4);
+        transform: translateY(-7px);
+      }
+
+        .cell-with-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+      }
+     th,
+      td {
+        padding: 15px;
+        text-align: center;
+      }
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <title><h3>Cadastro de Credor</h3></title>
     <style>
       /* ... estilos existentes ... */
 
@@ -72,211 +247,281 @@
         background-color: #005388;
         color: white;
       }
-
-      body {
+   
+        body {
         background-image: url("https://www.futurebrand.com/uploads/_heroImage/Webhelp-6.jpg");
         background-repeat: no-repeat;
         background-size: cover;
-        background-attachment: fixed; /* Adicente esta linha */
-}
+        background-attachment: fixed; 
+      }
+
         .ponto-title {
-    font-family: Arial, sans-serif;
-    color: #0066a2;
-    text-align: center;
-    padding: 20px 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    margin: 0;
-  }
+        font-family: Arial, sans-serif;
+        color: #0066a2;
+        text-align: center;
+        padding: 20px 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        margin: 0;
+      }
+          
+           .hidden {
+        display: none;
+      }
 
-  .hidden {
-    display: none;
-  }
+      .credor-title {
+        font-family: Arial, sans-serif;
+        color: #0066a2;
+        text-align: center;
+        padding: 20px 0;
+        background-color: #f2f2f2;
+        border-top: 1px solid #0066a2;
+        border-bottom: 1px solid #0066a2;
+        margin: 0;
+      }
 
-  .credor-title {
-    font-family: Arial, sans-serif;
-    color: #0066a2;
-    text-align: center;
-    padding: 20px 0;
-    background-color: #f2f2f2;
-    border-top: 1px solid #0066a2;
-    border-bottom: 1px solid #0066a2;
-    margin: 0;
-  }
+           .hidden {
+        display: none;
+      }
 
-  .credor-input {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid #0066a2;
-    border-radius: 4px;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    outline: none;
-    transition: border-color 0.3s ease-in-out;
-  }
+      .credor-input {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #0066a2;
+        border-radius: 4px;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.3s ease-in-out;
+      }
 
-  .credor-input:focus {
-    border-color: #005388;
-  }
+      .credor-input:focus {
+        border-color: #005388;
+      }
+      
+          .credor-table th {
+        background-color: #0066a2;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-weight: bold;
+      }
 
-  .credor-table th {
-    background-color: #0066a2;
-    color: white;
-    padding: 15px;
-    text-align: center;
-    font-weight: bold;
-  }
+      .credor-table td {
+        text-align: center;
+        vertical-align: middle;
+        font-weight: bold;
+        padding: 15px;
+      }
 
-  .credor-table td {
-    text-align: center;
-    vertical-align: middle;
-    font-weight: bold;
-    padding: 15px;
-  }  
-   </style>
+    </style>
   </head>
   <body>
-    <div class="credor-table-container">
+
+    
+     <div class="credor-table-container">
+    
+    <input
+      class="button3d"
+      type="button"
+      value="Bater Ponto"
+      onclick="baterPonto()"
+    />
+
+    <p id="relogio"></p>
+
+    <form id="credorForm">
+       <input
+        class="credor-input"
+        type="text"
+        id="credor"
+        placeholder="Credor"
+      /><br />
       <input
         class="button3d"
         type="button"
-        value="Bater Ponto"
-        onclick="baterPonto()"
+        value="Cadastrar Credor"
+        onclick="addCredor()"
       />
-        <p id="relogio"></p>
+      <input
+        class="button3d"
+        type="button"
+        value="Salvar dados"
+        onclick="saveData()"
+      />
+    </form>
+     <div class="credor-table-container">
+      <h4 class="hidden credor-title" id="credorTitle">Credores Cadastrados</h4>
+      <div id="credorTable" class="hidden">
+        <table class="credor-table">
+        <!-- As linhas da tabela serão adicionadas aqui pelo JavaScript -->
+      </table>
 
-  <form id="credorForm">
-    <input
-      class="credor-input"
-      type="text"
-      id="credor"
-      placeholder="Credor"
-    /><br />
-    <input
-      class="button3d"
-      type="button"
-      value="Cadastrar Credor"
-      onclick="addCredor()"
-    />
-    <input
-      class="button3d"
-      type="button"
-      value="Salvar dados"
-      onclick="saveData()"
-    />
-  </form>
+         
+    </div>
+    <script>
+      function iniciarRelogio() {
+        const relogio = document.getElementById("relogio");
+        setInterval(() => {
+          const agora = new Date();
+          relogio.innerText = agora.toLocaleTimeString();
+          if (
+            pontoBatido &&
+            (agora.getTime() - tempoInicial.getTime()) / 1000 / 60 >= 2
+          ) {
+            pontoBatido = false;
+            alert("2 minutos se passaram desde que o ponto foi batido");
+            document.body.classList.add("shake"); // adicionar a classe shake
+            setTimeout(() => {
+              document.body.classList.remove("shake"); // remover a classe shake após 0.5s
+            }, 500);
+            let audio = new Audio(
+              "C:\Users\Public\Music\Sample Music\Kalimba.mp3"
+            );
+            audio.play(); // toca o som
+          }
+        }, 1000);
+      }
 
-  <h4 class="hidden credor-title" id="credorTitle">Credores Cadastrados</h4>
-  <div id="credorTable" class="hidden">
-    <table class="credor-table">
-      <!-- As linhas da tabela serão adicionadas aqui pelo JavaScript -->
-    </table>
-  </div>
-</div>
+      // Função para lidar com o botão Bater Ponto
+      function baterPonto() {
+        pontoBatido = true;
+        tempoInicial = new Date();
+        alert("O ponto foi batido");
+      }
 
-<script>
-  function iniciarRelogio() {
-    const relogio = document.getElementById("relogio");
-    setInterval(() => {
-      const agora = new Date();
-      relogio.innerText = agora.toLocaleTimeString();
-      if (
-        pontoBatido &&
-        (agora.getTime() - tempoInicial.getTime()) / 1000 / 60 >= 2
-      ) {
-        pontoBatido = false;
-        alert("2 minutos se passaram desde que o ponto foi batido");
-        window.navigator.vibrate(200);
-        let audio = new Audio(
-          "https://github.com/FADUL37/fadul.github.io/blob/index/tribodaperiferia-tribo-da-perifereria-alma-de-pipa-a6a0a218.mp3"
-);
-audio.play(); // toca o som
-}
-}, 1000);
-}
-    // Função para lidar com o botão Bater Ponto
-  function baterPonto() {
-    pontoBatido = true;
-    tempoInicial = new Date();
-    alert("O ponto foi batido");
-  }
+      iniciarRelogio();
 
-  iniciarRelogio();
+      let pontoBatido = false;
+      let tempoInicial;
 
-  let pontoBatido = false;
-  let tempoInicial;
+      function iniciarRelogio() {
+        const relogio = document.getElementById("relogio");
+        setInterval(() => {
+          const agora = new Date();
+          relogio.innerText = agora.toLocaleTimeString();
+          if (
+            pontoBatido &&
+            (agora.getTime() - tempoInicial.getTime()) / 1000 / 60 >= 2
+          ) {
+            pontoBatido = false;
+            alert("2 minutos se passaram desde que o ponto foi batido");
+            window.navigator.vibrate(200);
+            let audio = new Audio("C:\Users\Public\Music\Sample Music\Kalimba.mp3");
+            audio.play(); // toca o som
+          }
+        }, 1000);
+      }
 
-  function addCredor() {
+      function baterPonto() {
+        pontoBatido = true;
+        tempoInicial = new Date();
+        alert("O ponto foi batido");
+      }
+
+      iniciarRelogio();
+
+    function addCredor() {
     let credor = document.getElementById("credor").value;
     if (!credor) {
       return;
     }
-    $.ajax({
-      type: "POST",
-      url: "save_credential.php",
-      data: { credor: credor },
-      success: function (response) {
-        alert(response);
-        document.getElementById("credor").value = "";
-      },
-      error: function (xhr, status, error) {
-        alert("Erro ao cadastrar o credor");
-        console.error(error);
-      },
-    });
-  }
 
-  function deleteRow(btn) {
-    let row = btn.parentNode.parentNode;
-    row.parentNode.removeChild(row);
-    saveData();
-  }
+    document.getElementById("credorTable").classList.remove("hidden");
+    document.getElementById("credorTitle").classList.remove("hidden");
 
-  function saveData() {
-    let tableData = [];
     let table = document
       .getElementById("credorTable")
       .getElementsByTagName("table")[0];
-    for (let i = 0; i < table.rows.length; i++) {
-      // Correção aqui
-      let rowData = [];
-      let row = table.rows[i];
-      for (let j = 0; j < row.cells.length; j++) {
-        rowData.push(row.cells[j].innerHTML);
-      }
-      tableData.push(rowData);
-    }
-    localStorage.setItem("credorTableData", JSON.stringify(tableData));
+
+    let row = table.insertRow();
+    row.insertCell(0).innerHTML = "Credor";
+    row.insertCell(1).innerHTML = "Feito";
+    row.insertCell(2).innerHTML = "Ausente";
+    row.insertCell(3).innerHTML = "Cod_Import";
+    row.insertCell(4).innerHTML = "Layout10";
+    row.insertCell(5).innerHTML = "Layout16";
+    row.insertCell(6).innerHTML = "Layout30";
+    row.insertCell(7).innerHTML = "Rejeicao";
+    row.insertCell(8).innerHTML = "Finalizada_Import";
+    row.insertCell(9).innerHTML = "Filtros";
+    row.insertCell(10).innerHTML = "Reex";
+    row.insertCell(11).innerHTML = "Incidentes";
+
+    let row2 = table.insertRow();
+    row2.insertCell(0).innerHTML = credor;
+    row2.insertCell(1).innerHTML = '<div class="cell-with-checkbox"><input type="checkbox"></div>';
+    row2.insertCell(2).innerHTML = '<div class="cell-with-checkbox"><input type="checkbox"></div>';
+    row2.insertCell(3).innerHTML = "<textarea></textarea>";
+    row2.insertCell(4).innerHTML = '<div class="cell-with-checkbox"><input type="checkbox"></div>';
+    row2.insertCell(5).innerHTML = '<div class="cell-with-checkbox"><input type="checkbox"></div>';
+    row2.insertCell(6).innerHTML = '<div class="cell-with-checkbox"><input type="checkbox"></div>';
+    row2.insertCell(7).innerHTML = '<div class="cell-with-checkbox"><input type="checkbox"></div>';
+    row2.insertCell(8).innerHTML = '<div class="cell-with-checkbox"><input type="checkbox"></div>';
+    row2.insertCell(9).innerHTML = '<div class="cell-with-checkbox"><input type="checkbox"></div>';
+    row2.insertCell(10).innerHTML = '<div class="cell-with-checkbox"><input type="checkbox"></div>';
+    row2.insertCell(11).innerHTML = "<textarea></textarea>";
+    row2.insertCell(12).innerHTML = '<input type="datetime-local">';
+    row2.insertCell(13).innerHTML =
+   '<button class="button3d" onclick="deleteRow(this)">Excluir</button>';
+
+    document.getElementById("credor").value = "";
   }
 
-  function loadData() {
-    let tableData = JSON.parse(localStorage.getItem("credorTableData"));
-    if (tableData) {
-      let table = document
-        .getElementById("credorTable")
-        .getElementsByTagName("table")[0];
-      for (let i = 0; i < tableData.length; i++) {
-        let rowData = tableData[i];
-        let row = table.insertRow();
-        for (let j = 0; j < rowData.length; j++) {
-          row.insertCell().innerHTML = rowData[j];
+
+      function deleteRow(btn) {
+        let row = btn.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+        saveData();
+      }
+
+      function saveData() {
+        let tableData = [];
+        let table = document
+          .getElementById("credorTable")
+          .getElementsByTagName("table")[0];
+        for (let i = 0; i < table.rows.length; i++) {
+          // Correção aqui
+          let rowData = [];
+          let row = table.rows[i];
+          for (let j = 0; j < row.cells.length; j++) {
+            rowData.push(row.cells[j].innerHTML);
+          }
+          tableData.push(rowData);
         }
-        row.insertCell().innerHTML =
-          '<button class="button3d" onclick="deleteRow(this)">Excluir</button>';
+        localStorage.setItem("credorTableData", JSON.stringify(tableData));
       }
-      document.getElementById("credorTable").classList.remove("hidden");
-      document.getElementById("credorTitle").classList.remove("hidden");
-    }
-  }
 
-  window.onload = loadData;
+      function loadData() {
+        let tableData = JSON.parse(localStorage.getItem("credorTableData"));
+        if (tableData) {
+          let table = document
+            .getElementById("credorTable")
+            .getElementsByTagName("table")[0];
+          for (let i = 0; i < tableData.length; i++) {
+            let rowData = tableData[i];
+            let row = table.insertRow();
+            for (let j = 0; j < rowData.length; j++) {
+              row.insertCell().innerHTML = rowData[j];
+            }
+            row.insertCell().innerHTML =
+              '<button class="button3d" onclick="deleteRow(this)">Excluir</button>';
+          }
+          document.getElementById("credorTable").classList.remove("hidden");
+          document.getElementById("credorTitle").classList.remove("hidden");
+        }
+      }
 
-  loadData();
-</script>
- </body>
+      window.onload = loadData;
+
+      loadData();
+      updateTime();
+    </script>
+  </body>
 </html>
 
 
-    
+
+
