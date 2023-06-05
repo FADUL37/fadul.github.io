@@ -369,10 +369,10 @@ th {
           relogio.innerText = agora.toLocaleTimeString();
           if (
             pontoBatido &&
-            (agora.getTime() - tempoInicial.getTime()) / 1000 / 60 >= 2
+            (agora.getTime() - tempoInicial.getTime()) / 1000 / 60 >= 58
           ) {
             pontoBatido = false;
-            alert("2 minutos se passaram desde que o ponto foi batido");
+            alert("58 minutos se passaram desde que o ponto foi batido");
             document.body.classList.add("shake"); // adicionar a classe shake
             setTimeout(() => {
               document.body.classList.remove("shake"); // remover a classe shake após 0.5s
@@ -404,10 +404,10 @@ th {
           relogio.innerText = agora.toLocaleTimeString();
           if (
             pontoBatido &&
-            (agora.getTime() - tempoInicial.getTime()) / 1000 / 60 >= 2
+            (agora.getTime() - tempoInicial.getTime()) / 1000 / 60 >= 58
           ) {
             pontoBatido = false;
-            alert("2 minutos se passaram desde que o ponto foi batido");
+            alert("58 minutos se passaram desde que o ponto foi batido");
             window.navigator.vibrate(200);
             let audio = new Audio("C:\Users\Public\Music\Sample Music\Kalimba.mp3");
             audio.play(); // toca o som
